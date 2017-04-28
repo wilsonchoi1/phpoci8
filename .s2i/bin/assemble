@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Installing oci8 prereqs (instantclient)"
+mkdir /opt/app-root/oracle
+cd /opt/app-root/oracle
+wget -q http://eisutil.acsu.buffalo.edu/ss/instantclient-basic-linux.x64.latest.zip
+wget -q http://eisutil.acsu.buffalo.edu/ss/instantclient-sdk-linux.x64.latest.zip
+unzip -q instantclient-basic-linux.x64.latest.zip
+unzip -q instantclient-sdk-linux.x64.latest.zip
+rm instantclient-*-linux.x64.latest.zip
+cd /opt/app-root/oracle/instantclient_*/
+ln -s libclntsh.so.12.1 libclntsh.so
+ln -s libclntshcore.so.12.1 libclntshcore.so
+ln -s libocci.so.12.1 libocci.so
+
+echo "Installing oci8 module"
+cd /opt/app-root/
+pecl bundle oci8
+cd oci8
+phpize
+./configure -q --with-oci8=instantclient,$ORACLE_HOME
+make
+mkdir /opt/app-root/php.d
+echo "extension=/opt/app-root/oci8/modules/oci8.so" >> /opt/app-root/php.d/oci8.ini
+
+echo "doing the standard stuff"
+cd /opt/app-root/src/
+/usr/libexec/s2i/assemble
