@@ -1,13 +1,13 @@
 #!/bin/bash
 
 echo "Installing oci8 prereqs (instantclient)"
-mkdir -p /opt/app-root/src/oracle
+//mkdir -p /opt/app-root/src/oracle
+mv /tmp/src/oracle /opt/app-root/src/
 cd /opt/app-root/src/oracle
 #echo "checking path"
 #pwd
 #ls -al *
 #ls -al /tmp/src/
-mv /tmp/src/oracle/* .
 #wget -q http://contrib.webapps.buffalo.edu/files/instantclient/instantclient-basic-linux.x64.latest.zip
 #wget -q http://contrib.webapps.buffalo.edu/files/instantclient/instantclient-sdk-linux.x64.latest.zip
 unzip -q instantclient-basic-linux.x64-12.2.0.1.0.zip
@@ -15,6 +15,7 @@ unzip -q instantclient-basic-linux.x64-12.2.0.1.0.zip
 #unzip -q instantclient-sdk-linux.x64.latest.zip
 unzip -q instantclient-sdk-linux.x64-12.2.0.1.0.zip
 rm instantclient-*-linux.x64-12.2.0.1.0.zip
+ls -al *
 cd /opt/app-root/oracle/instantclient_*/
 ln -s libclntsh.so.12.1 libclntsh.so
 ln -s libclntshcore.so.12.1 libclntshcore.so
