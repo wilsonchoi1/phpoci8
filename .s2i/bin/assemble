@@ -2,7 +2,7 @@
 
 echo "Installing oci8 prereqs (instantclient)"
 mkdir -p /opt/app-root/src/oracle
-cd /opt/app-root/src/oracle
+#cd /opt/app-root/src/oracle
 echo "checking path"
 pwd
 ls -al *
