@@ -6,6 +6,7 @@ mkdir -p /opt/app-root/src/oracle
 echo "checking path"
 pwd
 ls -al *
+ls -al /tmp/src/
 #wget -q http://contrib.webapps.buffalo.edu/files/instantclient/instantclient-basic-linux.x64.latest.zip
 #wget -q http://contrib.webapps.buffalo.edu/files/instantclient/instantclient-sdk-linux.x64.latest.zip
 unzip -q instantclient-basic-linux.x64-12.2.0.1.0.zip
