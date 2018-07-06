@@ -3,6 +3,7 @@
 echo "Installing oci8 prereqs (instantclient)"
 mkdir -p /opt/app-root/src/oracle
 cd /opt/app-root/src/oracle
+echo "checking path"
 pwd
 ls -al *
 #wget -q http://contrib.webapps.buffalo.edu/files/instantclient/instantclient-basic-linux.x64.latest.zip
